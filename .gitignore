@@ -4,8 +4,27 @@ __pycache__/
 build/
 dist/
 wheels/
-*.egg-info
+*.egg-info/
 
 # Virtual environments
-.venv
+.venv/
+venv/
+
+# Environment variables and secrets
 .env
+.env.*
+!.env.example
+
+# Pytest
+.pytest_cache/
+
+# Generated ETL data
+data/extract/
+data/transform/
+
+# Local logs
+*.log
+
+# IDE settings
+.vscode/
+.idea/

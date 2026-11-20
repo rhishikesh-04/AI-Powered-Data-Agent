@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Annotated, Literal
 from operator import add
+from langgraph.graph.message import add_messages
 
 class AgentSchema(BaseModel):
     messages:Annotated [list,add] = Field(..., description="List of messages to be processed by the agent.")
@@ -18,7 +19,10 @@ class JudgeSchema(BaseModel):
     comments : str = Field(..., description="Additional comments or feedback from the judge regarding the SQL query")
 
 class ETLAgentSchema(BaseModel):
-    messages : Annotated[list,add] = Field(..., description="List of messages to be processed by the ETL agent")    
+    messages: Annotated[list, add_messages] = Field(
+        default_factory=list,
+        description="List of messages to be processed by the ETL agent"
+    )
 
 
 class RouterSchema(BaseModel):

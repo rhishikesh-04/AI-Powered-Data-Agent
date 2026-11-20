@@ -1,0 +1,32 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env_example
+*.pem
+*.key
+
+# Git files
+.git/
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Development files
+.vscode/
+.idea/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Local datasets and generated files
+data/

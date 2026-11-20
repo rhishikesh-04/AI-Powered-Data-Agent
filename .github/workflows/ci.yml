@@ -1,0 +1,31 @@
+
+name: AI Data Agent CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    name: Run ETL Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.11
+
+      - name: Install dependencies
+        run: uv sync --locked --dev
+
+      - name: Run ETL tests
+        run: uv run python -m pytest tests/test_etl_filter.py tests/test_etl_extract.py -v
