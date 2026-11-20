@@ -29,3 +29,6 @@ jobs:
 
       - name: Run ETL tests
         run: uv run python -m pytest tests/test_etl_filter.py tests/test_etl_extract.py -v
+
+      - name: Build Docker image
+        run: docker build -t ai-data-agent:ci .
