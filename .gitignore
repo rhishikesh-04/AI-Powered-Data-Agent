@@ -28,3 +28,6 @@ data/transform/
 # IDE settings
 .vscode/
 .idea/
+
+# PostgreSQL database backups
+db_backup/
