@@ -21,6 +21,13 @@ class AgentResponse(BaseModel):
 def health():
     return {"status": "ok"}
 
+@app.get("/version")
+def version():
+    return {
+        "application": "AI Data Agent",
+        "version": "1.0.1"
+    }    
+
 
 @app.post("/ask", response_model=AgentResponse)
 def ask_question(request: QuestionRequest):
